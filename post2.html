@@ -1,0 +1,653 @@
+<html op="item"><head><meta name="referrer" content="origin"><link rel="stylesheet" type="text/css" href="news.css?cGh7JbwLa22PhL5vqe5V">
+        <link rel="shortcut icon" href="favicon.ico">
+        <script type="text/javascript">
+function hide(id) {
+  var el = document.getElementById(id);
+  if (el) { el.style.visibility = 'hidden'; }
+}
+function vote(node) {
+  var v = node.id.split(/_/);
+  var item = v[1];
+  hide('up_'   + item);
+  hide('down_' + item);
+  var ping = new Image();
+  ping.src = node.href;
+  return false;
+  }
+    </script><title>Biggest image in the smallest space | Hacker News</title></head><body><center><table id="hnmain" border="0" cellpadding="0" cellspacing="0" width="85%" bgcolor="#f6f6ef">
+        <tr><td bgcolor="#ff6600"><table border="0" cellpadding="0" cellspacing="0" width="100%" style="padding:2px"><tr><td style="width:18px;padding-right:4px"><a href="http://www.ycombinator.com"><img src="y18.gif" width="18" height="18" style="border:1px #ffffff solid;"></a></td>
+                  <td style="line-height:12pt; height:10px;"><span class="pagetop"><b><a href="news">Hacker News</a></b><img src="s.gif" height="1" width="10"><a href="newest">new</a> | <a href="newcomments">comments</a> | <a href="show">show</a> | <a href="ask">ask</a> | <a href="jobs">jobs</a> | <a href="submit">submit</a></span></td><td style="text-align:right;padding-right:4px;"><span class="pagetop">
+                              <a href="login?goto=item%3Fid%3D10158529">login</a>
+                          </span></td>
+              </tr></table></td></tr>
+<tr style="height:10px"></tr><tr><td><table border="0">
+        <tr class='athing'>
+      <td align="right" valign="top" class="title"><span class="rank"></span></td>      <td><center><a id="up_10158529" href="vote?for=10158529&amp;dir=up&amp;goto=item%3Fid%3D10158529"><div class="votearrow" title="upvote"></div></a></center></td><td class="title"><span class="deadmark"></span><a href="https://www.bamsoftware.com/hacks/deflate.html">Biggest image in the smallest space</a><span class="sitebit comhead"> (bamsoftware.com)</span></td></tr><tr><td colspan="2"></td><td class="subtext">
+        <span class="score" id="score_10158529">226 points</span> by <a href="user?id=fekberg">fekberg</a> <a href="item?id=10158529">4 hours ago</a>                  | <a href="item?id=10158529">66 comments</a>                              </td></tr>
+            <tr style="height:10px"></tr><tr><td colspan="2"></td><td>
+          <form method="post" action="comment"><input type="hidden" name="parent" value="10158529"><input type="hidden" name="goto" value="item?id=10158529"><input type="hidden" name="hmac" value="93b6e827095900bab7850484502f7ae32c7bf8cd"><textarea name="text" rows="6" cols="60"></textarea>
+                <br><br><input type="submit" value="add comment"></form>
+      </td></tr>
+  </table><br><br>
+  <table border="0">  <tr class='athing'><td><table border="0">  <tr><td class='ind'><img src="s.gif" height="1" width="0"></td><td valign="top"><center><a id="up_10158554" href="vote?for=10158554&amp;dir=up&amp;goto=item%3Fid%3D10158529"><div class="votearrow" title="upvote"></div></a></center></td><td class="default"><div style="margin-top:2px; margin-bottom:-10px;"><span class="comhead">
+          <a href="user?id=michaelmior">michaelmior</a> <a href="item?id=10158554">4 hours ago</a> <span class="par"></span><span class="deadmark"></span>          <span class='storyon'></span>
+                  </span></div><br><span class="comment">
+                  <span class="c00">Actually, it decompresses to a 5.8MB PNG. However, many graphics programs may choose to use three bytes per pixel when rendering the image and because it has incredibly large dimensions, this representation would take up 141GB of RAM.<span>
+              </span><div class='reply'>        <p><font size="1">
+                      <u><a href="reply?id=10158554&amp;goto=item%3Fid%3D10158529">reply</a></u>
+                  </font>
+      </div></td></tr>
+      </table></td></tr>
+        <tr class='athing'><td><table border="0">  <tr><td class='ind'><img src="s.gif" height="1" width="40"></td><td valign="top"><center><a id="up_10159146" href="vote?for=10159146&amp;dir=up&amp;goto=item%3Fid%3D10158529"><div class="votearrow" title="upvote"></div></a></center></td><td class="default"><div style="margin-top:2px; margin-bottom:-10px;"><span class="comhead">
+          <a href="user?id=userbinator">userbinator</a> <a href="item?id=10159146">1 hour ago</a> <span class="par"></span><span class="deadmark"></span>          <span class='storyon'></span>
+                  </span></div><br><span class="comment">
+                  <span class="c00"><i>Better</i> graphics programs will not attempt to put the whole image into RAM, but only decompress the pieces needed for processing it.<p>I remember working with multi-megapixel images on systems with far less than 1MB of RAM, many years ago. Perhaps this is a good example of how more hardware resources can lead to them being wasted - the fact that RAM has grown so much that <i>most</i> images fit completely in it, has also meant programmers assuming they can do this for <i>all</i> images without a second thought when often all that&#x27;s needed is a tiny subset of all the data.<p>Even if the image data is compressed, there&#x27;s absolutely no need to keep all of it in memory - just decompress incrementally into a small, fixed-size buffer until you get to the &quot;plaintext&quot; position desired, ignoring everything before that. The fact that it&#x27;s compressed also means that, with suitable algorithms, you can skip over huge spans at once - this is particularly easy to do with RLE and LZ - and the compression ratio actually boosts the speed of seeking to a specific position.<p>Currently, (hopefully...) no application is attempting to read entire video files into memory before processing them, but I wonder if that might change in the future as RAM becomes even bigger, and we&#x27;ll start to get &quot;video decompression bombs&quot; instead?<span>
+              </span><div class='reply'>        <p><font size="1">
+                      <u><a href="reply?id=10159146&amp;goto=item%3Fid%3D10158529">reply</a></u>
+                  </font>
+      </div></td></tr>
+      </table></td></tr>
+    <tr class='athing'><td><table border="0">  <tr><td class='ind'><img src="s.gif" height="1" width="40"></td><td valign="top"><center><a id="up_10158907" href="vote?for=10158907&amp;dir=up&amp;goto=item%3Fid%3D10158529"><div class="votearrow" title="upvote"></div></a></center></td><td class="default"><div style="margin-top:2px; margin-bottom:-10px;"><span class="comhead">
+          <a href="user?id=jerf">jerf</a> <a href="item?id=10158907">2 hours ago</a> <span class="par"></span><span class="deadmark"></span>          <span class='storyon'></span>
+                  </span></div><br><span class="comment">
+                  <span class="c00">One of the rules of secure programming is that any program that is used in an even remotely security-sensitive context, and anything displaying a Portable <i>Network</i> Graphic is likely to be used in such a context, must be able to specify resource usage limits. In this case that could be dimensions or a limit on the total RAM allowed to be used. Limits need not be hard, either, but could produce a query, for instance, the way very long-running scripts in the browser ask you if they should continue.<p>Now, go find an API&#x2F;library for dealing with PNGs that allow you to pass in such a limit, let alone pass in a callback for dealing with violations. Go ahead. I&#x27;ll wait.<p>(The Internet being what it is, if there is one, someone will pop up in a reply in five minutes citing it. If so, my compliments to the authors! But I think we can all agree that in general image APIs do not offer this control. In fact, in general, if you submit a patch to allow it, it would probably be rejected from most projects as unnecessarily complicating the API.)<p>This is the sort of thing that I mean when I say that we are so utterly buried by insecure coding practices that we can&#x27;t hardly even perceive it around us. I should add this as another example in <a href="http:&#x2F;&#x2F;www.jerf.org&#x2F;iri&#x2F;post&#x2F;2942" rel="nofollow">http:&#x2F;&#x2F;www.jerf.org&#x2F;iri&#x2F;post&#x2F;2942</a> .<span>
+              </span><div class='reply'>        <p><font size="1">
+                      <u><a href="reply?id=10158907&amp;goto=item%3Fid%3D10158529">reply</a></u>
+                  </font>
+      </div></td></tr>
+      </table></td></tr>
+        <tr class='athing'><td><table border="0">  <tr><td class='ind'><img src="s.gif" height="1" width="80"></td><td valign="top"><center><a id="up_10159036" href="vote?for=10159036&amp;dir=up&amp;goto=item%3Fid%3D10158529"><div class="votearrow" title="upvote"></div></a></center></td><td class="default"><div style="margin-top:2px; margin-bottom:-10px;"><span class="comhead">
+          <a href="user?id=userbinator">userbinator</a> <a href="item?id=10159036">2 hours ago</a> <span class="par"></span><span class="deadmark"></span>          <span class='storyon'></span>
+                  </span></div><br><span class="comment">
+                  <span class="c00"><i>Now, go find an API&#x2F;library for dealing with PNGs that allow you to pass in such a limit</i><p>The article itself links to <a href="http:&#x2F;&#x2F;libpng.sourceforge.net&#x2F;decompression_bombs.html" rel="nofollow">http:&#x2F;&#x2F;libpng.sourceforge.net&#x2F;decompression_bombs.html</a><p><i>These new libpng versions do not impose any arbitrary limits, on the memory consumption and number of ancillary chunks, but they do allow applications to do so via the png_set_chunk_malloc_max() and png_set_chunk_cache_max() functions, respectively.</i><span>
+              </span><div class='reply'>        <p><font size="1">
+                      <u><a href="reply?id=10159036&amp;goto=item%3Fid%3D10158529">reply</a></u>
+                  </font>
+      </div></td></tr>
+      </table></td></tr>
+        <tr class='athing'><td><table border="0">  <tr><td class='ind'><img src="s.gif" height="1" width="120"></td><td valign="top"><center><a id="up_10159354" href="vote?for=10159354&amp;dir=up&amp;goto=item%3Fid%3D10158529"><div class="votearrow" title="upvote"></div></a></center></td><td class="default"><div style="margin-top:2px; margin-bottom:-10px;"><span class="comhead">
+          <a href="user?id=jerf">jerf</a> <a href="item?id=10159354">1 hour ago</a> <span class="par"></span><span class="deadmark"></span>          <span class='storyon'></span>
+                  </span></div><br><span class="comment">
+                  <span class="c00">Now, go check your bindings, too. Often binding authors consider these incidental and unimportant and don&#x27;t expose them.<span>
+              </span><div class='reply'>        <p><font size="1">
+                      <u><a href="reply?id=10159354&amp;goto=item%3Fid%3D10158529">reply</a></u>
+                  </font>
+      </div></td></tr>
+      </table></td></tr>
+      <tr class='athing'><td><table border="0">  <tr><td class='ind'><img src="s.gif" height="1" width="80"></td><td valign="top"><center><a id="up_10158974" href="vote?for=10158974&amp;dir=up&amp;goto=item%3Fid%3D10158529"><div class="votearrow" title="upvote"></div></a></center></td><td class="default"><div style="margin-top:2px; margin-bottom:-10px;"><span class="comhead">
+          <a href="user?id=pierrec">pierrec</a> <a href="item?id=10158974">2 hours ago</a> <span class="par"></span><span class="deadmark"></span>          <span class='storyon'></span>
+                  </span></div><br><span class="comment">
+                  <span class="c00">You&#x27;re overdoing it a bit. I believe the most popular API&#x2F;library for server-side manipulation of images is ImageMagick, and it has a few options for specifying limits that will easily protect against decompression bombs.<p>That being said, even with these limits, it&#x27;s undeniable that something like ImageMagick still has a very large attack surface (especially since it uses many third-party libraries), so it should run in its own heavily unprivileged or sandboxed process.<span>
+              </span><div class='reply'>        <p><font size="1">
+                      <u><a href="reply?id=10158974&amp;goto=item%3Fid%3D10158529">reply</a></u>
+                  </font>
+      </div></td></tr>
+      </table></td></tr>
+        <tr class='athing'><td><table border="0">  <tr><td class='ind'><img src="s.gif" height="1" width="120"></td><td valign="top"><center><a id="up_10159381" href="vote?for=10159381&amp;dir=up&amp;goto=item%3Fid%3D10158529"><div class="votearrow" title="upvote"></div></a></center></td><td class="default"><div style="margin-top:2px; margin-bottom:-10px;"><span class="comhead">
+          <a href="user?id=jerf">jerf</a> <a href="item?id=10159381">1 hour ago</a> <span class="par"></span><span class="deadmark"></span>          <span class='storyon'></span>
+                  </span></div><br><span class="comment">
+                  <span class="c00">I should have added my &quot;no credit for showing the existence of limits if your code doesn&#x27;t use them&quot; criterion in advance. Now it looks like I&#x27;m moving the goal posts. Oh well; you can see a similar point in my linked post from several months ago which at least adds credence to the idea that this isn&#x27;t a new reaction of mine.<p>As you can see by reading that post as well, I&#x27;d also contend it really ought to be in the core API, not an optional thing that defaults to no limits. A sensible default could be imposed, too, though that turns out to be tricky to define the closer you look at it.<span>
+              </span><div class='reply'>        <p><font size="1">
+                      <u><a href="reply?id=10159381&amp;goto=item%3Fid%3D10158529">reply</a></u>
+                  </font>
+      </div></td></tr>
+      </table></td></tr>
+      <tr class='athing'><td><table border="0">  <tr><td class='ind'><img src="s.gif" height="1" width="80"></td><td valign="top"><center><a id="up_10159070" href="vote?for=10159070&amp;dir=up&amp;goto=item%3Fid%3D10158529"><div class="votearrow" title="upvote"></div></a></center></td><td class="default"><div style="margin-top:2px; margin-bottom:-10px;"><span class="comhead">
+          <a href="user?id=phkahler">phkahler</a> <a href="item?id=10159070">2 hours ago</a> <span class="par"></span><span class="deadmark"></span>          <span class='storyon'></span>
+                  </span></div><br><span class="comment">
+                  <span class="c00">Ultimately it&#x27;s going to require a malloc to get the space for all those pixels. That is where things should fail. If not, how is one to specify what the image size limits should be? Ever try to open the Blue Marble images from NASA? In a web browser? Back in 2001?<span>
+              </span><div class='reply'>        <p><font size="1">
+                      <u><a href="reply?id=10159070&amp;goto=item%3Fid%3D10158529">reply</a></u>
+                  </font>
+      </div></td></tr>
+      </table></td></tr>
+        <tr class='athing'><td><table border="0">  <tr><td class='ind'><img src="s.gif" height="1" width="120"></td><td valign="top"><center><a id="up_10159264" href="vote?for=10159264&amp;dir=up&amp;goto=item%3Fid%3D10158529"><div class="votearrow" title="upvote"></div></a></center></td><td class="default"><div style="margin-top:2px; margin-bottom:-10px;"><span class="comhead">
+          <a href="user?id=to3m">to3m</a> <a href="item?id=10159264">1 hour ago</a> <span class="par"></span><span class="deadmark"></span>          <span class='storyon'></span>
+                  </span></div><br><span class="comment">
+                  <span class="c00">Any decent library (of any sort) should already be providing hooks for its memory allocation. This isn&#x27;t necessarily provided as a security feature, and it&#x27;s common for your callbacks not to get much in the way of information about what&#x27;s going on, but it will allow you to at least crudely put a cap on the library&#x27;s memory usage.<span>
+              </span><div class='reply'>        <p><font size="1">
+                      <u><a href="reply?id=10159264&amp;goto=item%3Fid%3D10158529">reply</a></u>
+                  </font>
+      </div></td></tr>
+      </table></td></tr>
+      <tr class='athing'><td><table border="0">  <tr><td class='ind'><img src="s.gif" height="1" width="80"></td><td valign="top"><center><a id="up_10159743" href="vote?for=10159743&amp;dir=up&amp;goto=item%3Fid%3D10158529"><div class="votearrow" title="upvote"></div></a></center></td><td class="default"><div style="margin-top:2px; margin-bottom:-10px;"><span class="comhead">
+          <a href="user?id=wiredfool">wiredfool</a> <a href="item?id=10159743">40 minutes ago</a> <span class="par"></span><span class="deadmark"></span>          <span class='storyon'></span>
+                  </span></div><br><span class="comment">
+                  <span class="c00">Limits, yes. Callback, maybe not so much.<p><a href="https:&#x2F;&#x2F;github.com&#x2F;python-pillow&#x2F;Pillow&#x2F;blob&#x2F;master&#x2F;PIL&#x2F;PngImagePlugin.py#L86" rel="nofollow">https:&#x2F;&#x2F;github.com&#x2F;python-pillow&#x2F;Pillow&#x2F;blob&#x2F;master&#x2F;PIL&#x2F;PngI...</a><span>
+              </span><div class='reply'>        <p><font size="1">
+                      <u><a href="reply?id=10159743&amp;goto=item%3Fid%3D10158529">reply</a></u>
+                  </font>
+      </div></td></tr>
+      </table></td></tr>
+    <tr class='athing'><td><table border="0">  <tr><td class='ind'><img src="s.gif" height="1" width="80"></td><td valign="top"><center><a id="up_10158946" href="vote?for=10158946&amp;dir=up&amp;goto=item%3Fid%3D10158529"><div class="votearrow" title="upvote"></div></a></center></td><td class="default"><div style="margin-top:2px; margin-bottom:-10px;"><span class="comhead">
+          <a href="user?id=silon7">silon7</a> <a href="item?id=10158946">2 hours ago</a> <span class="par"></span><span class="deadmark"></span>          <span class='storyon'></span>
+                  </span></div><br><span class="comment">
+                  <span class="c00">ulimit may help. Perhaps it could (maybe already is) be added to Chrome per-tab process.<p>Not sure of Windows equivalent, Microsoft has deprecated Windows System Resource Manager, not sure of a good equivalent (except going fully to Linux).<span>
+              </span><div class='reply'>        <p><font size="1">
+                      <u><a href="reply?id=10158946&amp;goto=item%3Fid%3D10158529">reply</a></u>
+                  </font>
+      </div></td></tr>
+      </table></td></tr>
+      <tr class='athing'><td><table border="0">  <tr><td class='ind'><img src="s.gif" height="1" width="40"></td><td valign="top"><center><a id="up_10158901" href="vote?for=10158901&amp;dir=up&amp;goto=item%3Fid%3D10158529"><div class="votearrow" title="upvote"></div></a></center></td><td class="default"><div style="margin-top:2px; margin-bottom:-10px;"><span class="comhead">
+          <a href="user?id=wiredfool">wiredfool</a> <a href="item?id=10158901">2 hours ago</a> <span class="par"></span><span class="deadmark"></span>          <span class='storyon'></span>
+                  </span></div><br><span class="comment">
+                  <span class="c00">Some image programs will allocate space based on the metadata in the file. The actual image data isn&#x27;t actually required. So, if there&#x27;s corrupted image data, say a byte or two (or even missing), there&#x27;s nothing stopping the reported size being in the gigapixel range.<span>
+              </span><div class='reply'>        <p><font size="1">
+                      <u><a href="reply?id=10158901&amp;goto=item%3Fid%3D10158529">reply</a></u>
+                  </font>
+      </div></td></tr>
+      </table></td></tr>
+    <tr class='athing'><td><table border="0">  <tr><td class='ind'><img src="s.gif" height="1" width="40"></td><td valign="top"><center><a id="up_10158696" href="vote?for=10158696&amp;dir=up&amp;goto=item%3Fid%3D10158529"><div class="votearrow" title="upvote"></div></a></center></td><td class="default"><div style="margin-top:2px; margin-bottom:-10px;"><span class="comhead">
+          <a href="user?id=fla">fla</a> <a href="item?id=10158696">3 hours ago</a> <span class="par"></span><span class="deadmark"></span>          <span class='storyon'></span>
+                  </span></div><br><span class="comment">
+                  <span class="c00">And almost every program that tries to display it.<span>
+              </span><div class='reply'>        <p><font size="1">
+                      <u><a href="reply?id=10158696&amp;goto=item%3Fid%3D10158529">reply</a></u>
+                  </font>
+      </div></td></tr>
+      </table></td></tr>
+      <tr class='athing'><td><table border="0">  <tr><td class='ind'><img src="s.gif" height="1" width="0"></td><td valign="top"><center><a id="up_10158660" href="vote?for=10158660&amp;dir=up&amp;goto=item%3Fid%3D10158529"><div class="votearrow" title="upvote"></div></a></center></td><td class="default"><div style="margin-top:2px; margin-bottom:-10px;"><span class="comhead">
+          <a href="user?id=DanBC">DanBC</a> <a href="item?id=10158660">3 hours ago</a> <span class="par"></span><span class="deadmark"></span>          <span class='storyon'></span>
+                  </span></div><br><span class="comment">
+                  <span class="c00">That&#x27;s impressive.  Here are some other compression curiosities.<p><a href="http:&#x2F;&#x2F;www.maximumcompression.com&#x2F;compression_fun.php" rel="nofollow">http:&#x2F;&#x2F;www.maximumcompression.com&#x2F;compression_fun.php</a><p>A 24 byte file that uncompresses to 5 MB; another file with good compression under RAR but almost no compression under ZIP; and a compressed file that decompresses to itself.<span>
+              </span><div class='reply'>        <p><font size="1">
+                      <u><a href="reply?id=10158660&amp;goto=item%3Fid%3D10158529">reply</a></u>
+                  </font>
+      </div></td></tr>
+      </table></td></tr>
+        <tr class='athing'><td><table border="0">  <tr><td class='ind'><img src="s.gif" height="1" width="40"></td><td valign="top"><center><a id="up_10159089" href="vote?for=10159089&amp;dir=up&amp;goto=item%3Fid%3D10158529"><div class="votearrow" title="upvote"></div></a></center></td><td class="default"><div style="margin-top:2px; margin-bottom:-10px;"><span class="comhead">
+          <a href="user?id=rwmj">rwmj</a> <a href="item?id=10159089">2 hours ago</a> <span class="par"></span><span class="deadmark"></span>          <span class='storyon'></span>
+                  </span></div><br><span class="comment">
+                  <span class="c00">This isn&#x27;t a decompression bomb, but here are some fun virtual disk images I found using AFL fuzzer.  One of the files is 329 bytes, but causes qemu to consume 4 GB of heap trying to process it.  This has interesting consequences for the public cloud, where people can upload any old stuff and it is usually processed immediately by &#x27;qemu-img&#x27;.<p><a href="https:&#x2F;&#x2F;bugs.launchpad.net&#x2F;qemu&#x2F;+bug&#x2F;1462949" rel="nofollow">https:&#x2F;&#x2F;bugs.launchpad.net&#x2F;qemu&#x2F;+bug&#x2F;1462949</a><p>(I have a big collection of these, but most of the bugs have now been fixed in qemu)<span>
+              </span><div class='reply'>        <p><font size="1">
+                      <u><a href="reply?id=10159089&amp;goto=item%3Fid%3D10158529">reply</a></u>
+                  </font>
+      </div></td></tr>
+      </table></td></tr>
+    <tr class='athing'><td><table border="0">  <tr><td class='ind'><img src="s.gif" height="1" width="40"></td><td valign="top"><center><a id="up_10158789" href="vote?for=10158789&amp;dir=up&amp;goto=item%3Fid%3D10158529"><div class="votearrow" title="upvote"></div></a></center></td><td class="default"><div style="margin-top:2px; margin-bottom:-10px;"><span class="comhead">
+          <a href="user?id=sulami">sulami</a> <a href="item?id=10158789">3 hours ago</a> <span class="par"></span><span class="deadmark"></span>          <span class='storyon'></span>
+                  </span></div><br><span class="comment">
+                  <span class="c00">The file that decompresses to itself is a work of art. How does one even go about to create something like this?<span>
+              </span><div class='reply'>        <p><font size="1">
+                      <u><a href="reply?id=10158789&amp;goto=item%3Fid%3D10158529">reply</a></u>
+                  </font>
+      </div></td></tr>
+      </table></td></tr>
+        <tr class='athing'><td><table border="0">  <tr><td class='ind'><img src="s.gif" height="1" width="80"></td><td valign="top"><center><a id="up_10158861" href="vote?for=10158861&amp;dir=up&amp;goto=item%3Fid%3D10158529"><div class="votearrow" title="upvote"></div></a></center></td><td class="default"><div style="margin-top:2px; margin-bottom:-10px;"><span class="comhead">
+          <a href="user?id=nanofortnight">nanofortnight</a> <a href="item?id=10158861">2 hours ago</a> <span class="par"></span><span class="deadmark"></span>          <span class='storyon'></span>
+                  </span></div><br><span class="comment">
+                  <span class="c00">Quines.<p><a href="https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;Quine_%28computing%29" rel="nofollow">https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;Quine_%28computing%29</a><p>LZ77 Quine: <a href="http:&#x2F;&#x2F;steike.com&#x2F;code&#x2F;useless&#x2F;zip-file-quine&#x2F;" rel="nofollow">http:&#x2F;&#x2F;steike.com&#x2F;code&#x2F;useless&#x2F;zip-file-quine&#x2F;</a><span>
+              </span><div class='reply'>        <p><font size="1">
+                      <u><a href="reply?id=10158861&amp;goto=item%3Fid%3D10158529">reply</a></u>
+                  </font>
+      </div></td></tr>
+      </table></td></tr>
+    <tr class='athing'><td><table border="0">  <tr><td class='ind'><img src="s.gif" height="1" width="80"></td><td valign="top"><center><a id="up_10158818" href="vote?for=10158818&amp;dir=up&amp;goto=item%3Fid%3D10158529"><div class="votearrow" title="upvote"></div></a></center></td><td class="default"><div style="margin-top:2px; margin-bottom:-10px;"><span class="comhead">
+          <a href="user?id=quarterto">quarterto</a> <a href="item?id=10158818">2 hours ago</a> <span class="par"></span><span class="deadmark"></span>          <span class='storyon'></span>
+                  </span></div><br><span class="comment">
+                  <span class="c00">Like this: <a href="http:&#x2F;&#x2F;research.swtch.com&#x2F;zip" rel="nofollow">http:&#x2F;&#x2F;research.swtch.com&#x2F;zip</a>. Fascinating read.<span>
+              </span><div class='reply'>        <p><font size="1">
+                      <u><a href="reply?id=10158818&amp;goto=item%3Fid%3D10158529">reply</a></u>
+                  </font>
+      </div></td></tr>
+      </table></td></tr>
+        <tr class='athing'><td><table border="0">  <tr><td class='ind'><img src="s.gif" height="1" width="120"></td><td valign="top"><center><a id="up_10159014" href="vote?for=10159014&amp;dir=up&amp;goto=item%3Fid%3D10158529"><div class="votearrow" title="upvote"></div></a></center></td><td class="default"><div style="margin-top:2px; margin-bottom:-10px;"><span class="comhead">
+          <a href="user?id=Cyph0n">Cyph0n</a> <a href="item?id=10159014">2 hours ago</a> <span class="par"></span><span class="deadmark"></span>          <span class='storyon'></span>
+                  </span></div><br><span class="comment">
+                  <span class="c00">Written by THE Russ Cox?<span>
+              </span><div class='reply'>        <p><font size="1">
+                      <u><a href="reply?id=10159014&amp;goto=item%3Fid%3D10158529">reply</a></u>
+                  </font>
+      </div></td></tr>
+      </table></td></tr>
+      <tr class='athing'><td><table border="0">  <tr><td class='ind'><img src="s.gif" height="1" width="80"></td><td valign="top"><center><a id="up_10158820" href="vote?for=10158820&amp;dir=up&amp;goto=item%3Fid%3D10158529"><div class="votearrow" title="upvote"></div></a></center></td><td class="default"><div style="margin-top:2px; margin-bottom:-10px;"><span class="comhead">
+          <a href="user?id=DanBC">DanBC</a> <a href="item?id=10158820">2 hours ago</a> <span class="par"></span><span class="deadmark"></span>          <span class='storyon'></span>
+                  </span></div><br><span class="comment">
+                  <span class="c00">I have no idea.<p>There are people who take special interest in compression.  The Hutter Prize would be a good place to find them.  <a href="http:&#x2F;&#x2F;prize.hutter1.net&#x2F;" rel="nofollow">http:&#x2F;&#x2F;prize.hutter1.net&#x2F;</a><p>It&#x27;s a bit old now.<p>&gt; Restrictions: Must run in &lt;10 hours on a 2GHz P4 with 1GB RAM and 10GB free HD<p>I&#x27;d be interested to see what can happen without those restrictions.<span>
+              </span><div class='reply'>        <p><font size="1">
+                      <u><a href="reply?id=10158820&amp;goto=item%3Fid%3D10158529">reply</a></u>
+                  </font>
+      </div></td></tr>
+      </table></td></tr>
+      <tr class='athing'><td><table border="0">  <tr><td class='ind'><img src="s.gif" height="1" width="40"></td><td valign="top"><center><a id="up_10159050" href="vote?for=10159050&amp;dir=up&amp;goto=item%3Fid%3D10158529"><div class="votearrow" title="upvote"></div></a></center></td><td class="default"><div style="margin-top:2px; margin-bottom:-10px;"><span class="comhead">
+          <a href="user?id=Filligree">Filligree</a> <a href="item?id=10159050">2 hours ago</a> <span class="par"></span><span class="deadmark"></span>          <span class='storyon'></span>
+                  </span></div><br><span class="comment">
+                  <span class="c00">I&#x27;ll add mine: <a href="https:&#x2F;&#x2F;brage.info&#x2F;hello" rel="nofollow">https:&#x2F;&#x2F;brage.info&#x2F;hello</a><p>It&#x27;s a 1MB file that decompresses to 261 tredecillion bytes of &quot;Hello, World&quot;.<p>No terribly clever stream manipulation; it&#x27;s a perfectly normal gzip file, other than the size. The generation script is here: <a href="http:&#x2F;&#x2F;sprunge.us&#x2F;VhFc" rel="nofollow">http:&#x2F;&#x2F;sprunge.us&#x2F;VhFc</a>, but see if you can figure it out without peeking.<span>
+              </span><div class='reply'>        <p><font size="1">
+                      <u><a href="reply?id=10159050&amp;goto=item%3Fid%3D10158529">reply</a></u>
+                  </font>
+      </div></td></tr>
+      </table></td></tr>
+        <tr class='athing'><td><table border="0">  <tr><td class='ind'><img src="s.gif" height="1" width="80"></td><td valign="top"><center><a id="up_10159481" href="vote?for=10159481&amp;dir=up&amp;goto=item%3Fid%3D10158529"><div class="votearrow" title="upvote"></div></a></center></td><td class="default"><div style="margin-top:2px; margin-bottom:-10px;"><span class="comhead">
+          <a href="user?id=sbierwagen">sbierwagen</a> <a href="item?id=10159481">1 hour ago</a> <span class="par"></span><span class="deadmark"></span>          <span class='storyon'></span>
+                  </span></div><br><span class="comment">
+                  <span class="c00">Warning to my fellow chumps: that is a direct link to the gzip bomb. Clicking on it causes a download, which results in Windows Defender promptly losing its mind as it tries to decompress the whole thing looking for viruses. (win 8.1)<p>Interestingly enough, it&#x27;s not using up any memory, but it is hitting the disk at 55MB&#x2F;s, so I&#x27;m guessing it&#x27;s decompressing it to disk, and will eventually crash when it fills up my hard drive.<span>
+              </span><div class='reply'>        <p><font size="1">
+                      <u><a href="reply?id=10159481&amp;goto=item%3Fid%3D10158529">reply</a></u>
+                  </font>
+      </div></td></tr>
+      </table></td></tr>
+    <tr class='athing'><td><table border="0">  <tr><td class='ind'><img src="s.gif" height="1" width="80"></td><td valign="top"><center><a id="up_10159080" href="vote?for=10159080&amp;dir=up&amp;goto=item%3Fid%3D10158529"><div class="votearrow" title="upvote"></div></a></center></td><td class="default"><div style="margin-top:2px; margin-bottom:-10px;"><span class="comhead">
+          <a href="user?id=kuschku">kuschku</a> <a href="item?id=10159080">2 hours ago</a> <span class="par"></span><span class="deadmark"></span>          <span class='storyon'></span>
+                  </span></div><br><span class="comment">
+                  <span class="c00">Actually, it decompresses into a 1.4MiB file, which decompresses into another 1.4MiB file, recursively.<span>
+              </span><div class='reply'>        <p><font size="1">
+                      <u><a href="reply?id=10159080&amp;goto=item%3Fid%3D10158529">reply</a></u>
+                  </font>
+      </div></td></tr>
+      </table></td></tr>
+        <tr class='athing'><td><table border="0">  <tr><td class='ind'><img src="s.gif" height="1" width="0"></td><td valign="top"><center><a id="up_10159629" href="vote?for=10159629&amp;dir=up&amp;goto=item%3Fid%3D10158529"><div class="votearrow" title="upvote"></div></a></center></td><td class="default"><div style="margin-top:2px; margin-bottom:-10px;"><span class="comhead">
+          <a href="user?id=__mp">__mp</a> <a href="item?id=10159629">55 minutes ago</a> <span class="par"></span><span class="deadmark"></span>          <span class='storyon'></span>
+                  </span></div><br><span class="comment">
+                  <span class="c00">Photoshop was able to show it: 
+  <a href="http:&#x2F;&#x2F;i.imgur.com&#x2F;7EdBySv.png" rel="nofollow">http:&#x2F;&#x2F;i.imgur.com&#x2F;7EdBySv.png</a> (Macbook Pro, 16GB RAM)<span>
+              </span><div class='reply'>        <p><font size="1">
+                      <u><a href="reply?id=10159629&amp;goto=item%3Fid%3D10158529">reply</a></u>
+                  </font>
+      </div></td></tr>
+      </table></td></tr>
+        <tr class='athing'><td><table border="0">  <tr><td class='ind'><img src="s.gif" height="1" width="40"></td><td valign="top"><center><a id="up_10159941" href="vote?for=10159941&amp;dir=up&amp;goto=item%3Fid%3D10158529"><div class="votearrow" title="upvote"></div></a></center></td><td class="default"><div style="margin-top:2px; margin-bottom:-10px;"><span class="comhead">
+          <a href="user?id=userbinator">userbinator</a> <a href="item?id=10159941">15 minutes ago</a> <span class="par"></span><span class="deadmark"></span>          <span class='storyon'></span>
+                  </span></div><br><span class="comment">
+                  <span class="c00">Photoshop is an example of a graphics program that doesn&#x27;t attempt to read the entire image into memory.<p>How much RAM did it actually use?<span>
+              </span><div class='reply'>        <p><font size="1">
+                      <u><a href="reply?id=10159941&amp;goto=item%3Fid%3D10158529">reply</a></u>
+                  </font>
+      </div></td></tr>
+      </table></td></tr>
+    <tr class='athing'><td><table border="0">  <tr><td class='ind'><img src="s.gif" height="1" width="40"></td><td valign="top"><center><a id="up_10159953" href="vote?for=10159953&amp;dir=up&amp;goto=item%3Fid%3D10158529"><div class="votearrow" title="upvote"></div></a></center></td><td class="default"><div style="margin-top:2px; margin-bottom:-10px;"><span class="comhead">
+          <a href="user?id=anilgulecha">anilgulecha</a> <a href="item?id=10159953">13 minutes ago</a> <span class="par"></span><span class="deadmark"></span>          <span class='storyon'></span>
+                  </span></div><br><span class="comment">
+                  <span class="c00">Tells you why it&#x27;s a solid image application. Kudos to them.<span>
+              </span><div class='reply'>        <p><font size="1">
+                      <u><a href="reply?id=10159953&amp;goto=item%3Fid%3D10158529">reply</a></u>
+                  </font>
+      </div></td></tr>
+      </table></td></tr>
+      <tr class='athing'><td><table border="0">  <tr><td class='ind'><img src="s.gif" height="1" width="0"></td><td valign="top"><center><a id="up_10158627" href="vote?for=10158627&amp;dir=up&amp;goto=item%3Fid%3D10158529"><div class="votearrow" title="upvote"></div></a></center></td><td class="default"><div style="margin-top:2px; margin-bottom:-10px;"><span class="comhead">
+          <a href="user?id=0x0">0x0</a> <a href="item?id=10158627">3 hours ago</a> <span class="par"></span><span class="deadmark"></span>          <span class='storyon'></span>
+                  </span></div><br><span class="comment">
+                  <span class="c00">That&#x27;s neat, but I still think the self-reproducing r.zip from &quot;zip files all the way down&quot; is the best compression trick I&#x27;ve seen:<p><a href="http:&#x2F;&#x2F;research.swtch.com&#x2F;zip" rel="nofollow">http:&#x2F;&#x2F;research.swtch.com&#x2F;zip</a><span>
+              </span><div class='reply'>        <p><font size="1">
+                      <u><a href="reply?id=10158627&amp;goto=item%3Fid%3D10158529">reply</a></u>
+                  </font>
+      </div></td></tr>
+      </table></td></tr>
+        <tr class='athing'><td><table border="0">  <tr><td class='ind'><img src="s.gif" height="1" width="40"></td><td valign="top"><center><a id="up_10158655" href="vote?for=10158655&amp;dir=up&amp;goto=item%3Fid%3D10158529"><div class="votearrow" title="upvote"></div></a></center></td><td class="default"><div style="margin-top:2px; margin-bottom:-10px;"><span class="comhead">
+          <a href="user?id=dmit">dmit</a> <a href="item?id=10158655">3 hours ago</a> <span class="par"></span><span class="deadmark"></span>          <span class='storyon'></span>
+                  </span></div><br><span class="comment">
+                  <span class="c00">There&#x27;s also dynamic generation of output by specifying a custom filter in a RAR archive that is executed during decompression:
+<a href="http:&#x2F;&#x2F;blog.cmpxchg8b.com&#x2F;2012&#x2F;09&#x2F;fun-with-constrained-programming.html" rel="nofollow">http:&#x2F;&#x2F;blog.cmpxchg8b.com&#x2F;2012&#x2F;09&#x2F;fun-with-constrained-progr...</a><span>
+              </span><div class='reply'>        <p><font size="1">
+                      <u><a href="reply?id=10158655&amp;goto=item%3Fid%3D10158529">reply</a></u>
+                  </font>
+      </div></td></tr>
+      </table></td></tr>
+      <tr class='athing'><td><table border="0">  <tr><td class='ind'><img src="s.gif" height="1" width="0"></td><td valign="top"><center><a id="up_10158936" href="vote?for=10158936&amp;dir=up&amp;goto=item%3Fid%3D10158529"><div class="votearrow" title="upvote"></div></a></center></td><td class="default"><div style="margin-top:2px; margin-bottom:-10px;"><span class="comhead">
+          <a href="user?id=semi-extrinsic">semi-extrinsic</a> <a href="item?id=10158936">2 hours ago</a> <span class="par"></span><span class="deadmark"></span>          <span class='storyon'></span>
+                  </span></div><br><span class="comment">
+                  <span class="c00">If you follow the &quot;related reading&quot; link on the bottom of TFA, you come to a page by Glenn Randers-Pehrson discussing how libpng deals with decompression bombs. On the bottom of that page you find the following curious note; anyone know what to make of it?<p>&quot;&quot;&quot;
+[Note for any DHS people who have stumbled upon this site, be aware that this is a cybersecurity issue, not a physical security issue. Feel free to contact me at &lt;glennrp at users.sourceforge.net&gt; to discuss it.]
+&quot;&quot;&quot;<span>
+              </span><div class='reply'>        <p><font size="1">
+                      <u><a href="reply?id=10158936&amp;goto=item%3Fid%3D10158529">reply</a></u>
+                  </font>
+      </div></td></tr>
+      </table></td></tr>
+        <tr class='athing'><td><table border="0">  <tr><td class='ind'><img src="s.gif" height="1" width="40"></td><td valign="top"><center><a id="up_10158951" href="vote?for=10158951&amp;dir=up&amp;goto=item%3Fid%3D10158529"><div class="votearrow" title="upvote"></div></a></center></td><td class="default"><div style="margin-top:2px; margin-bottom:-10px;"><span class="comhead">
+          <a href="user?id=saalweachter">saalweachter</a> <a href="item?id=10158951">2 hours ago</a> <span class="par"></span><span class="deadmark"></span>          <span class='storyon'></span>
+                  </span></div><br><span class="comment">
+                  <span class="c00">He&#x27;s presumably had problems with people confusing &quot;decompression bombs&quot; with the blowy-up kind and sending him panicky e-mails.<span>
+              </span><div class='reply'>        <p><font size="1">
+                      <u><a href="reply?id=10158951&amp;goto=item%3Fid%3D10158529">reply</a></u>
+                  </font>
+      </div></td></tr>
+      </table></td></tr>
+        <tr class='athing'><td><table border="0">  <tr><td class='ind'><img src="s.gif" height="1" width="80"></td><td valign="top"><center><a id="up_10159887" href="vote?for=10159887&amp;dir=up&amp;goto=item%3Fid%3D10158529"><div class="votearrow" title="upvote"></div></a></center></td><td class="default"><div style="margin-top:2px; margin-bottom:-10px;"><span class="comhead">
+          <a href="user?id=semi-extrinsic">semi-extrinsic</a> <a href="item?id=10159887">22 minutes ago</a> <span class="par"></span><span class="deadmark"></span>          <span class='storyon'></span>
+                  </span></div><br><span class="comment">
+                  <span class="c00">Ah, of course. That didn&#x27;t even cross my mind, for some reason; bomb in this context was so obviously not a physical device.<span>
+              </span><div class='reply'>        <p><font size="1">
+                      <u><a href="reply?id=10159887&amp;goto=item%3Fid%3D10158529">reply</a></u>
+                  </font>
+      </div></td></tr>
+      </table></td></tr>
+      <tr class='athing'><td><table border="0">  <tr><td class='ind'><img src="s.gif" height="1" width="40"></td><td valign="top"><center><a id="up_10158955" href="vote?for=10158955&amp;dir=up&amp;goto=item%3Fid%3D10158529"><div class="votearrow" title="upvote"></div></a></center></td><td class="default"><div style="margin-top:2px; margin-bottom:-10px;"><span class="comhead">
+          <a href="user?id=fennecfoxen">fennecfoxen</a> <a href="item?id=10158955">2 hours ago</a> <span class="par"></span><span class="deadmark"></span>          <span class='storyon'></span>
+                  </span></div><br><span class="comment">
+                  <span class="c00">What to make of it? Seems clear enough; he&#x27;s (half-jokingly?) afraid that someone in the federal government will see the page and think &quot;oh no! bombs! explosions! TERRORISM!&quot; and identify more clearly that this is only a computer analogy.<span>
+              </span><div class='reply'>        <p><font size="1">
+                      <u><a href="reply?id=10158955&amp;goto=item%3Fid%3D10158529">reply</a></u>
+                  </font>
+      </div></td></tr>
+      </table></td></tr>
+    <tr class='athing'><td><table border="0">  <tr><td class='ind'><img src="s.gif" height="1" width="40"></td><td valign="top"><center><a id="up_10158957" href="vote?for=10158957&amp;dir=up&amp;goto=item%3Fid%3D10158529"><div class="votearrow" title="upvote"></div></a></center></td><td class="default"><div style="margin-top:2px; margin-bottom:-10px;"><span class="comhead">
+          <a href="user?id=nerdy">nerdy</a> <a href="item?id=10158957">2 hours ago</a> <span class="par"></span><span class="deadmark"></span>          <span class='storyon'></span>
+                  </span></div><br><span class="comment">
+                  <span class="c00">I think it is related to the word &quot;bomb&quot; existing on the page<span>
+              </span><div class='reply'>        <p><font size="1">
+                      <u><a href="reply?id=10158957&amp;goto=item%3Fid%3D10158529">reply</a></u>
+                  </font>
+      </div></td></tr>
+      </table></td></tr>
+      <tr class='athing'><td><table border="0">  <tr><td class='ind'><img src="s.gif" height="1" width="0"></td><td valign="top"><center><a id="up_10160023" href="vote?for=10160023&amp;dir=up&amp;goto=item%3Fid%3D10158529"><div class="votearrow" title="upvote"></div></a></center></td><td class="default"><div style="margin-top:2px; margin-bottom:-10px;"><span class="comhead">
+          <a href="user?id=hnpc123">hnpc123</a> <a href="item?id=10160023">4 minutes ago</a> <span class="par"></span><span class="deadmark"></span>          <span class='storyon'></span>
+                  </span></div><br><span class="comment">
+                  <span class="c00">The title was changed and is now more opaque and less descriptive.<span>
+              </span><div class='reply'>        <p><font size="1">
+                      <u><a href="reply?id=10160023&amp;goto=item%3Fid%3D10158529">reply</a></u>
+                  </font>
+      </div></td></tr>
+      </table></td></tr>
+    <tr class='athing'><td><table border="0">  <tr><td class='ind'><img src="s.gif" height="1" width="0"></td><td valign="top"><center><a id="up_10158611" href="vote?for=10158611&amp;dir=up&amp;goto=item%3Fid%3D10158529"><div class="votearrow" title="upvote"></div></a></center></td><td class="default"><div style="margin-top:2px; margin-bottom:-10px;"><span class="comhead">
+          <a href="user?id=wiredfool">wiredfool</a> <a href="item?id=10158611">3 hours ago</a> <span class="par"></span><span class="deadmark"></span>          <span class='storyon'></span>
+                  </span></div><br><span class="comment">
+                  <span class="c00">PNGs also have optional compressed text metadata chunks, and it&#x27;s possible to sneak a decompression bomb into one of those as well. You can get about a factor of 1000 in the compression -- 1MB of &#x27;a&#x27; winds up being about 1040 bytes. You can have multiple itxt chunks, and it appears that the chunk size is only limited to 2^31-1.<p>See <a href="https:&#x2F;&#x2F;github.com&#x2F;python-pillow&#x2F;Pillow&#x2F;blob&#x2F;master&#x2F;Tests&#x2F;check_png_dos.py" rel="nofollow">https:&#x2F;&#x2F;github.com&#x2F;python-pillow&#x2F;Pillow&#x2F;blob&#x2F;master&#x2F;Tests&#x2F;ch...</a> for a quick way to generate some of these.<span>
+              </span><div class='reply'>        <p><font size="1">
+                      <u><a href="reply?id=10158611&amp;goto=item%3Fid%3D10158529">reply</a></u>
+                  </font>
+      </div></td></tr>
+      </table></td></tr>
+    <tr class='athing'><td><table border="0">  <tr><td class='ind'><img src="s.gif" height="1" width="0"></td><td valign="top"><center><a id="up_10158774" href="vote?for=10158774&amp;dir=up&amp;goto=item%3Fid%3D10158529"><div class="votearrow" title="upvote"></div></a></center></td><td class="default"><div style="margin-top:2px; margin-bottom:-10px;"><span class="comhead">
+          <a href="user?id=andersthue">andersthue</a> <a href="item?id=10158774">3 hours ago</a> <span class="par"></span><span class="deadmark"></span>          <span class='storyon'></span>
+                  </span></div><br><span class="comment">
+                  <span class="c00">Reminds me of how you could crash a fido node by sending them some big empty files, so when they got automatically unzipped the filled of the harddrive :)<span>
+              </span><div class='reply'>        <p><font size="1">
+                      <u><a href="reply?id=10158774&amp;goto=item%3Fid%3D10158529">reply</a></u>
+                  </font>
+      </div></td></tr>
+      </table></td></tr>
+        <tr class='athing'><td><table border="0">  <tr><td class='ind'><img src="s.gif" height="1" width="40"></td><td valign="top"><center><a id="up_10158840" href="vote?for=10158840&amp;dir=up&amp;goto=item%3Fid%3D10158529"><div class="votearrow" title="upvote"></div></a></center></td><td class="default"><div style="margin-top:2px; margin-bottom:-10px;"><span class="comhead">
+          <a href="user?id=fizgig">fizgig</a> <a href="item?id=10158840">2 hours ago</a> <span class="par"></span><span class="deadmark"></span>          <span class='storyon'></span>
+                  </span></div><br><span class="comment">
+                  <span class="c00">I think this kind of thing was common even a few years ago in DoS&#x27;ing mail gateways that uncompressed and scanned various archive formats.  Things like really huge files when uncompressed or ridiculously deep nested directory structures.<p>I think most software these days is immune to such tricks, or at least has tunables to reduce the chance of such tricks causing harm.<span>
+              </span><div class='reply'>        <p><font size="1">
+                      <u><a href="reply?id=10158840&amp;goto=item%3Fid%3D10158529">reply</a></u>
+                  </font>
+      </div></td></tr>
+      </table></td></tr>
+        <tr class='athing'><td><table border="0">  <tr><td class='ind'><img src="s.gif" height="1" width="80"></td><td valign="top"><center><a id="up_10159094" href="vote?for=10159094&amp;dir=up&amp;goto=item%3Fid%3D10158529"><div class="votearrow" title="upvote"></div></a></center></td><td class="default"><div style="margin-top:2px; margin-bottom:-10px;"><span class="comhead">
+          <a href="user?id=digi_owl">digi_owl</a> <a href="item?id=10159094">2 hours ago</a> <span class="par"></span><span class="deadmark"></span>          <span class='storyon'></span>
+                  </span></div><br><span class="comment">
+                  <span class="c00">Zip bombs, a relative of the fork bomb.<p><a href="https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;Zip_bomb" rel="nofollow">https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;Zip_bomb</a><p>The billion laughs XML attack is also lovely in its simplicity.<p><a href="https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;Billion_laughs" rel="nofollow">https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;Billion_laughs</a><span>
+              </span><div class='reply'>        <p><font size="1">
+                      <u><a href="reply?id=10159094&amp;goto=item%3Fid%3D10158529">reply</a></u>
+                  </font>
+      </div></td></tr>
+      </table></td></tr>
+    <tr class='athing'><td><table border="0">  <tr><td class='ind'><img src="s.gif" height="1" width="80"></td><td valign="top"><center><a id="up_10159066" href="vote?for=10159066&amp;dir=up&amp;goto=item%3Fid%3D10158529"><div class="votearrow" title="upvote"></div></a></center></td><td class="default"><div style="margin-top:2px; margin-bottom:-10px;"><span class="comhead">
+          <a href="user?id=dingaling">dingaling</a> <a href="item?id=10159066">2 hours ago</a> <span class="par"></span><span class="deadmark"></span>          <span class='storyon'></span>
+                  </span></div><br><span class="comment">
+                  <span class="c00">There was also the trick of infinitely recursive zips that kept decompressing to a copy of themselves.<p>Zip-bombing was such a problem for our corporate network in the late 1990s that inbound e-mail attachments were deliberately discarded for a while.  Chaos ensured.<span>
+              </span><div class='reply'>        <p><font size="1">
+                      <u><a href="reply?id=10159066&amp;goto=item%3Fid%3D10158529">reply</a></u>
+                  </font>
+      </div></td></tr>
+      </table></td></tr>
+        <tr class='athing'><td><table border="0">  <tr><td class='ind'><img src="s.gif" height="1" width="0"></td><td valign="top"><center><a id="up_10158893" href="vote?for=10158893&amp;dir=up&amp;goto=item%3Fid%3D10158529"><div class="votearrow" title="upvote"></div></a></center></td><td class="default"><div style="margin-top:2px; margin-bottom:-10px;"><span class="comhead">
+          <a href="user?id=eli_gottlieb">eli_gottlieb</a> <a href="item?id=10158893">2 hours ago</a> <span class="par"></span><span class="deadmark"></span>          <span class='storyon'></span>
+                  </span></div><br><span class="comment">
+                  <span class="c00"><a href="http:&#x2F;&#x2F;jeremykun.com&#x2F;2012&#x2F;04&#x2F;21&#x2F;kolmogorov-complexity-a-primer&#x2F;" rel="nofollow">http:&#x2F;&#x2F;jeremykun.com&#x2F;2012&#x2F;04&#x2F;21&#x2F;kolmogorov-complexity-a-prim...</a><p><a href="http:&#x2F;&#x2F;c2.com&#x2F;cgi&#x2F;wiki?KolmogorovComplexity" rel="nofollow">http:&#x2F;&#x2F;c2.com&#x2F;cgi&#x2F;wiki?KolmogorovComplexity</a><p>Here be rabbit-hole.<span>
+              </span><div class='reply'>        <p><font size="1">
+                      <u><a href="reply?id=10158893&amp;goto=item%3Fid%3D10158529">reply</a></u>
+                  </font>
+      </div></td></tr>
+      </table></td></tr>
+    <tr class='athing'><td><table border="0">  <tr><td class='ind'><img src="s.gif" height="1" width="0"></td><td valign="top"><center><a id="up_10158707" href="vote?for=10158707&amp;dir=up&amp;goto=item%3Fid%3D10158529"><div class="votearrow" title="upvote"></div></a></center></td><td class="default"><div style="margin-top:2px; margin-bottom:-10px;"><span class="comhead">
+          <a href="user?id=inglor">inglor</a> <a href="item?id=10158707">3 hours ago</a> <span class="par"></span><span class="deadmark"></span>          <span class='storyon'></span>
+                  </span></div><br><span class="comment">
+                  <span class="c00">This does wonders when used in favicons :D<span>
+              </span><div class='reply'>        <p><font size="1">
+                      <u><a href="reply?id=10158707&amp;goto=item%3Fid%3D10158529">reply</a></u>
+                  </font>
+      </div></td></tr>
+      </table></td></tr>
+        <tr class='athing'><td><table border="0">  <tr><td class='ind'><img src="s.gif" height="1" width="40"></td><td valign="top"><center><a id="up_10158898" href="vote?for=10158898&amp;dir=up&amp;goto=item%3Fid%3D10158529"><div class="votearrow" title="upvote"></div></a></center></td><td class="default"><div style="margin-top:2px; margin-bottom:-10px;"><span class="comhead">
+          <a href="user?id=raffomania">raffomania</a> <a href="item?id=10158898">2 hours ago</a> <span class="par"></span><span class="deadmark"></span>          <span class='storyon'></span>
+                  </span></div><br><span class="comment">
+                  <span class="c00">I just tried it on a locally served page, and my browser handles it quite well (although it won&#x27;t really display it).<span>
+              </span><div class='reply'>        <p><font size="1">
+                      <u><a href="reply?id=10158898&amp;goto=item%3Fid%3D10158529">reply</a></u>
+                  </font>
+      </div></td></tr>
+      </table></td></tr>
+        <tr class='athing'><td><table border="0">  <tr><td class='ind'><img src="s.gif" height="1" width="80"></td><td valign="top"><center><a id="up_10159844" href="vote?for=10159844&amp;dir=up&amp;goto=item%3Fid%3D10158529"><div class="votearrow" title="upvote"></div></a></center></td><td class="default"><div style="margin-top:2px; margin-bottom:-10px;"><span class="comhead">
+          <a href="user?id=inglor">inglor</a> <a href="item?id=10159844">26 minutes ago</a> <span class="par"></span><span class="deadmark"></span>          <span class='storyon'></span>
+                  </span></div><br><span class="comment">
+                  <span class="c00">Only on firefox and chrome since they fixed it <a href="https:&#x2F;&#x2F;github.com&#x2F;benjamingr&#x2F;favicon-bug" rel="nofollow">https:&#x2F;&#x2F;github.com&#x2F;benjamingr&#x2F;favicon-bug</a><span>
+              </span><div class='reply'>        <p><font size="1">
+                      <u><a href="reply?id=10159844&amp;goto=item%3Fid%3D10158529">reply</a></u>
+                  </font>
+      </div></td></tr>
+      </table></td></tr>
+      <tr class='athing'><td><table border="0">  <tr><td class='ind'><img src="s.gif" height="1" width="40"></td><td valign="top"><center><a id="up_10158860" href="vote?for=10158860&amp;dir=up&amp;goto=item%3Fid%3D10158529"><div class="votearrow" title="upvote"></div></a></center></td><td class="default"><div style="margin-top:2px; margin-bottom:-10px;"><span class="comhead">
+          <a href="user?id=feld">feld</a> <a href="item?id=10158860">2 hours ago</a> <span class="par"></span><span class="deadmark"></span>          <span class='storyon'></span>
+                  </span></div><br><span class="comment">
+                  <span class="c00">You just made my stomach turn at the thought<span>
+              </span><div class='reply'>        <p><font size="1">
+                      <u><a href="reply?id=10158860&amp;goto=item%3Fid%3D10158529">reply</a></u>
+                  </font>
+      </div></td></tr>
+      </table></td></tr>
+      <tr class='athing'><td><table border="0">  <tr><td class='ind'><img src="s.gif" height="1" width="0"></td><td valign="top"><center><a id="up_10159543" href="vote?for=10159543&amp;dir=up&amp;goto=item%3Fid%3D10158529"><div class="votearrow" title="upvote"></div></a></center></td><td class="default"><div style="margin-top:2px; margin-bottom:-10px;"><span class="comhead">
+          <a href="user?id=tetrep">tetrep</a> <a href="item?id=10159543">1 hour ago</a> <span class="par"></span><span class="deadmark"></span>          <span class='storyon'></span>
+                  </span></div><br><span class="comment">
+                  <span class="c00">Neat. I needed to make very large PNG bombs recently and toyed with the idea of doing it &quot;manually.&quot; In the end I decided to take the lazy route and use libpng[1].<p>[1]: <a href="https:&#x2F;&#x2F;bitbucket.org&#x2F;tetrep&#x2F;pngbomb&#x2F;src&#x2F;03dfc95065d78562c156c056abc3d5f1fd7047b8&#x2F;pngbomb.c?at=master" rel="nofollow">https:&#x2F;&#x2F;bitbucket.org&#x2F;tetrep&#x2F;pngbomb&#x2F;src&#x2F;03dfc95065d78562c15...</a><span>
+              </span><div class='reply'>        <p><font size="1">
+                      <u><a href="reply?id=10159543&amp;goto=item%3Fid%3D10158529">reply</a></u>
+                  </font>
+      </div></td></tr>
+      </table></td></tr>
+    <tr class='athing'><td><table border="0">  <tr><td class='ind'><img src="s.gif" height="1" width="0"></td><td valign="top"><center><a id="up_10158859" href="vote?for=10158859&amp;dir=up&amp;goto=item%3Fid%3D10158529"><div class="votearrow" title="upvote"></div></a></center></td><td class="default"><div style="margin-top:2px; margin-bottom:-10px;"><span class="comhead">
+          <a href="user?id=raffomania">raffomania</a> <a href="item?id=10158859">2 hours ago</a> <span class="par"></span><span class="deadmark"></span>          <span class='storyon'></span>
+                  </span></div><br><span class="comment">
+                  <span class="c00">Fun fact: When trying to upload this as a profile picture (on a site I host myself), chromium crashes.<span>
+              </span><div class='reply'>        <p><font size="1">
+                      <u><a href="reply?id=10158859&amp;goto=item%3Fid%3D10158529">reply</a></u>
+                  </font>
+      </div></td></tr>
+      </table></td></tr>
+    <tr class='athing'><td><table border="0">  <tr><td class='ind'><img src="s.gif" height="1" width="0"></td><td valign="top"><center><a id="up_10159058" href="vote?for=10159058&amp;dir=up&amp;goto=item%3Fid%3D10158529"><div class="votearrow" title="upvote"></div></a></center></td><td class="default"><div style="margin-top:2px; margin-bottom:-10px;"><span class="comhead">
+          <a href="user?id=dahart">dahart</a> <a href="item?id=10159058">2 hours ago</a> <span class="par"></span><span class="deadmark"></span>          <span class='storyon'></span>
+                  </span></div><br><span class="comment">
+                  <span class="c00">Having dealt with and printed a lot of <i>very</i> large images, e.g., 60k x 60k pixels, I have been on the lookout for image processing software that never decompresses the entire image into ram, but instead works on blocks or scan lines or blocks of scan lines, but stays in constant memory and streams to and from disk. For example, the ImageMagick fork GraphicsMagick does a much better job of this than ImageMagick. What other software is out there that can handle these kinds of images?<span>
+              </span><div class='reply'>        <p><font size="1">
+                      <u><a href="reply?id=10159058&amp;goto=item%3Fid%3D10158529">reply</a></u>
+                  </font>
+      </div></td></tr>
+      </table></td></tr>
+        <tr class='athing'><td><table border="0">  <tr><td class='ind'><img src="s.gif" height="1" width="40"></td><td valign="top"><center><a id="up_10159105" href="vote?for=10159105&amp;dir=up&amp;goto=item%3Fid%3D10158529"><div class="votearrow" title="upvote"></div></a></center></td><td class="default"><div style="margin-top:2px; margin-bottom:-10px;"><span class="comhead">
+          <a href="user?id=phkahler">phkahler</a> <a href="item?id=10159105">1 hour ago</a> <span class="par"></span><span class="deadmark"></span>          <span class='storyon'></span>
+                  </span></div><br><span class="comment">
+                  <span class="c00">The key is not to store it in raster form in RAM. Either tiles (like GIMP) or I prefer Z-ordering. Then a user can zoom in and pan around easily - you let the system swap and it won&#x27;t be bad at all. If they zoom out though, you probably want to store MIP maps of it.<p>Swap works well for this as long as your data has good locality. huge raster images don&#x27;t.<p>But no, I&#x27;m not aware of any software that handles stuff like that well - except the GIMPs tiling, but that&#x27;s not going to help when zoomed out.<span>
+              </span><div class='reply'>        <p><font size="1">
+                      <u><a href="reply?id=10159105&amp;goto=item%3Fid%3D10158529">reply</a></u>
+                  </font>
+      </div></td></tr>
+      </table></td></tr>
+      <tr class='athing'><td><table border="0">  <tr><td class='ind'><img src="s.gif" height="1" width="0"></td><td valign="top"><center><a id="up_10159044" href="vote?for=10159044&amp;dir=up&amp;goto=item%3Fid%3D10158529"><div class="votearrow" title="upvote"></div></a></center></td><td class="default"><div style="margin-top:2px; margin-bottom:-10px;"><span class="comhead">
+          <a href="user?id=AndrewStephens">AndrewStephens</a> <a href="item?id=10159044">2 hours ago</a> <span class="par"></span><span class="deadmark"></span>          <span class='storyon'></span>
+                  </span></div><br><span class="comment">
+                  <span class="c00">I used to work on a scanning SMTP&#x2F;HTTP proxy and even back then it wasn&#x27;t unknown for people to send crafted decompression bombs to attempt to crash the services. We handled it by estimating the total uncompressed size upfront (including sub archives) and throwing out anything with a suspiciously large compression ratio.<p>I imagine that .pdf files are another avenue for mischief. They contain lots of chunks which may be compressed in varying ways.<span>
+              </span><div class='reply'>        <p><font size="1">
+                      <u><a href="reply?id=10159044&amp;goto=item%3Fid%3D10158529">reply</a></u>
+                  </font>
+      </div></td></tr>
+      </table></td></tr>
+    <tr class='athing'><td><table border="0">  <tr><td class='ind'><img src="s.gif" height="1" width="0"></td><td valign="top"><center><a id="up_10159485" href="vote?for=10159485&amp;dir=up&amp;goto=item%3Fid%3D10158529"><div class="votearrow" title="upvote"></div></a></center></td><td class="default"><div style="margin-top:2px; margin-bottom:-10px;"><span class="comhead">
+          <a href="user?id=atom_enger">atom_enger</a> <a href="item?id=10159485">1 hour ago</a> <span class="par"></span><span class="deadmark"></span>          <span class='storyon'></span>
+                  </span></div><br><span class="comment">
+                  <span class="c00">Trying to run the program and create my own image, however a few questions, what did you use for secret.png? Any old png?<p>Are you using PIL or pillow?<span>
+              </span><div class='reply'>        <p><font size="1">
+                      <u><a href="reply?id=10159485&amp;goto=item%3Fid%3D10158529">reply</a></u>
+                  </font>
+      </div></td></tr>
+      </table></td></tr>
+    <tr class='athing'><td><table border="0">  <tr><td class='ind'><img src="s.gif" height="1" width="0"></td><td valign="top"><center><a id="up_10158604" href="vote?for=10158604&amp;dir=up&amp;goto=item%3Fid%3D10158529"><div class="votearrow" title="upvote"></div></a></center></td><td class="default"><div style="margin-top:2px; margin-bottom:-10px;"><span class="comhead">
+          <a href="user?id=JosephRedfern">JosephRedfern</a> <a href="item?id=10158604">3 hours ago</a> <span class="par"></span><span class="deadmark"></span>          <span class='storyon'></span>
+                  </span></div><br><span class="comment">
+                  <span class="c00">That&#x27;s cool. Presumably the same &quot;attack&quot; could be applied to any file format that uses DEFLATE.<p>From a legal stand-point, I&#x27;d be wary about following through with the authors suggestion of &quot;Upload as your profile picture to some online service, try to crash their image processing scripts&quot; without permission. Sounds like a good way of getting into trouble.<span>
+              </span><div class='reply'>        <p><font size="1">
+                      <u><a href="reply?id=10158604&amp;goto=item%3Fid%3D10158529">reply</a></u>
+                  </font>
+      </div></td></tr>
+      </table></td></tr>
+        <tr class='athing'><td><table border="0">  <tr><td class='ind'><img src="s.gif" height="1" width="40"></td><td valign="top"><center><a id="up_10158770" href="vote?for=10158770&amp;dir=up&amp;goto=item%3Fid%3D10158529"><div class="votearrow" title="upvote"></div></a></center></td><td class="default"><div style="margin-top:2px; margin-bottom:-10px;"><span class="comhead">
+          <a href="user?id=cnvogel">cnvogel</a> <a href="item?id=10158770">3 hours ago</a> <span class="par"></span><span class="deadmark"></span>          <span class='storyon'></span>
+                  </span></div><br><span class="comment">
+                  <span class="c00">Yes, but on the other hand it&#x27;s a good reminder for everyone processing user provided files to sanity check or convert them to a canonical format in a sandboxes and resource limited process.<span>
+              </span><div class='reply'>        <p><font size="1">
+                      <u><a href="reply?id=10158770&amp;goto=item%3Fid%3D10158529">reply</a></u>
+                  </font>
+      </div></td></tr>
+      </table></td></tr>
+      <tr class='athing'><td><table border="0">  <tr><td class='ind'><img src="s.gif" height="1" width="0"></td><td valign="top"><center><a id="up_10158891" href="vote?for=10158891&amp;dir=up&amp;goto=item%3Fid%3D10158529"><div class="votearrow" title="upvote"></div></a></center></td><td class="default"><div style="margin-top:2px; margin-bottom:-10px;"><span class="comhead">
+          <a href="user?id=pvdebbe">pvdebbe</a> <a href="item?id=10158891">2 hours ago</a> <span class="par"></span><span class="deadmark"></span>          <span class='storyon'></span>
+                  </span></div><br><span class="comment">
+                  <span class="c00">Cool, but most web sites wouldn&#x27;t allow to upload a 5-MB picture as a profile picture. Or do they, these days?<span>
+              </span><div class='reply'>        <p><font size="1">
+                      <u><a href="reply?id=10158891&amp;goto=item%3Fid%3D10158529">reply</a></u>
+                  </font>
+      </div></td></tr>
+      </table></td></tr>
+    <tr class='athing'><td><table border="0">  <tr><td class='ind'><img src="s.gif" height="1" width="0"></td><td valign="top"><center><a id="up_10158775" href="vote?for=10158775&amp;dir=up&amp;goto=item%3Fid%3D10158529"><div class="votearrow" title="upvote"></div></a></center></td><td class="default"><div style="margin-top:2px; margin-bottom:-10px;"><span class="comhead">
+          <a href="user?id=andrewstuart">andrewstuart</a> <a href="item?id=10158775">3 hours ago</a> <span class="par"></span><span class="deadmark"></span>          <span class='storyon'></span>
+                  </span></div><br><span class="comment">
+                  <span class="c00">Is there a way to check for decompression bombs? I&#x27;d like my software to be able to unzip zip files safely.<span>
+              </span><div class='reply'>        <p><font size="1">
+                      <u><a href="reply?id=10158775&amp;goto=item%3Fid%3D10158529">reply</a></u>
+                  </font>
+      </div></td></tr>
+      </table></td></tr>
+        <tr class='athing'><td><table border="0">  <tr><td class='ind'><img src="s.gif" height="1" width="40"></td><td valign="top"><center><a id="up_10158827" href="vote?for=10158827&amp;dir=up&amp;goto=item%3Fid%3D10158529"><div class="votearrow" title="upvote"></div></a></center></td><td class="default"><div style="margin-top:2px; margin-bottom:-10px;"><span class="comhead">
+          <a href="user?id=ZenoArrow">ZenoArrow</a> <a href="item?id=10158827">2 hours ago</a> <span class="par"></span><span class="deadmark"></span>          <span class='storyon'></span>
+                  </span></div><br><span class="comment">
+                  <span class="c00">Monitor zip files as they decompress. Halt decompression process if the size ratio between zip file and decompressed file exceeds a fixed ratio (for example, if ratio between the file sizes is something like 10:1).<span>
+              </span><div class='reply'>        <p><font size="1">
+                      <u><a href="reply?id=10158827&amp;goto=item%3Fid%3D10158529">reply</a></u>
+                  </font>
+      </div></td></tr>
+      </table></td></tr>
+        <tr class='athing'><td><table border="0">  <tr><td class='ind'><img src="s.gif" height="1" width="80"></td><td valign="top"><center><a id="up_10158889" href="vote?for=10158889&amp;dir=up&amp;goto=item%3Fid%3D10158529"><div class="votearrow" title="upvote"></div></a></center></td><td class="default"><div style="margin-top:2px; margin-bottom:-10px;"><span class="comhead">
+          <a href="user?id=Ambroos">Ambroos</a> <a href="item?id=10158889">2 hours ago</a> <span class="par"></span><span class="deadmark"></span>          <span class='storyon'></span>
+                  </span></div><br><span class="comment">
+                  <span class="c00">If you do that, pick something a little more extreme. When using BEM, for example, your CSS becomes pretty repetitive and you easily get better than 10:1 ratio with GZIP, for example.<span>
+              </span><div class='reply'>        <p><font size="1">
+                      <u><a href="reply?id=10158889&amp;goto=item%3Fid%3D10158529">reply</a></u>
+                  </font>
+      </div></td></tr>
+      </table></td></tr>
+      <tr class='athing'><td><table border="0">  <tr><td class='ind'><img src="s.gif" height="1" width="40"></td><td valign="top"><center><a id="up_10159062" href="vote?for=10159062&amp;dir=up&amp;goto=item%3Fid%3D10158529"><div class="votearrow" title="upvote"></div></a></center></td><td class="default"><div style="margin-top:2px; margin-bottom:-10px;"><span class="comhead">
+          <a href="user?id=MatthewWilkes">MatthewWilkes</a> <a href="item?id=10159062">2 hours ago</a> <span class="par"></span><span class="deadmark"></span>          <span class='storyon'></span>
+                  </span></div><br><span class="comment">
+                  <span class="c00">A python example:<p><pre><code>    def decompress(data, maxsize=262144):
+
+        dec = zlib.decompressobj()
+        data = dec.decompress(data, maxsize)
+        if dec.unconsumed_tail:
+            raise ValueError(&quot;Possible zip Bomb&quot;)
+        del dec
+
+        return data</code></pre><span>
+              </span><div class='reply'>        <p><font size="1">
+                      <u><a href="reply?id=10159062&amp;goto=item%3Fid%3D10158529">reply</a></u>
+                  </font>
+      </div></td></tr>
+      </table></td></tr>
+    <tr class='athing'><td><table border="0">  <tr><td class='ind'><img src="s.gif" height="1" width="40"></td><td valign="top"><center><a id="up_10158884" href="vote?for=10158884&amp;dir=up&amp;goto=item%3Fid%3D10158529"><div class="votearrow" title="upvote"></div></a></center></td><td class="default"><div style="margin-top:2px; margin-bottom:-10px;"><span class="comhead">
+          <a href="user?id=wiredfool">wiredfool</a> <a href="item?id=10158884">2 hours ago</a> <span class="par"></span><span class="deadmark"></span>          <span class='storyon'></span>
+                  </span></div><br><span class="comment">
+                  <span class="c00">You can do it in zlib -- there&#x27;s one call that effectively does the whole thing, and one that fills a buffer. You can check to see how much input has been consumed, if there&#x27;s more, then you know you&#x27;re getting large. It&#x27;s up to the friendly programmer to decide when large is too large.<span>
+              </span><div class='reply'>        <p><font size="1">
+                      <u><a href="reply?id=10158884&amp;goto=item%3Fid%3D10158529">reply</a></u>
+                  </font>
+      </div></td></tr>
+      </table></td></tr>
+    <tr class='athing'><td><table border="0">  <tr><td class='ind'><img src="s.gif" height="1" width="40"></td><td valign="top"><center><a id="up_10159111" href="vote?for=10159111&amp;dir=up&amp;goto=item%3Fid%3D10158529"><div class="votearrow" title="upvote"></div></a></center></td><td class="default"><div style="margin-top:2px; margin-bottom:-10px;"><span class="comhead">
+          <a href="user?id=bluedino">bluedino</a> <a href="item?id=10159111">1 hour ago</a> <span class="par"></span><span class="deadmark"></span>          <span class='storyon'></span>
+                  </span></div><br><span class="comment">
+                  <span class="c00">Sandbox them. We once created a 1024MB, 6GB disk single-core VM and built a tiny API around image decompression and scaling. Never had any issues with it, but it was a simple way of preventing things from filling up the regular web servers.<span>
+              </span><div class='reply'>        <p><font size="1">
+                      <u><a href="reply?id=10159111&amp;goto=item%3Fid%3D10158529">reply</a></u>
+                  </font>
+      </div></td></tr>
+      </table></td></tr>
+    <tr class='athing'><td><table border="0">  <tr><td class='ind'><img src="s.gif" height="1" width="40"></td><td valign="top"><center><a id="up_10158864" href="vote?for=10158864&amp;dir=up&amp;goto=item%3Fid%3D10158529"><div class="votearrow" title="upvote"></div></a></center></td><td class="default"><div style="margin-top:2px; margin-bottom:-10px;"><span class="comhead">
+          <a href="user?id=wglb">wglb</a> <a href="item?id=10158864">2 hours ago</a> <span class="par"></span><span class="deadmark"></span>          <span class='storyon'></span>
+                  </span></div><br><span class="comment">
+                  <span class="c00">Yes. A method whose only purpose is to answer the question &#x27;is this file larger than &lt;parameter&gt;&#x27;.  If it is don&#x27;t go further.<span>
+              </span><div class='reply'>        <p><font size="1">
+                      <u><a href="reply?id=10158864&amp;goto=item%3Fid%3D10158529">reply</a></u>
+                  </font>
+      </div></td></tr>
+      </table></td></tr>
+      <tr class='athing'><td><table border="0">  <tr><td class='ind'><img src="s.gif" height="1" width="0"></td><td valign="top"><center><a id="up_10158580" href="vote?for=10158580&amp;dir=up&amp;goto=item%3Fid%3D10158529"><div class="votearrow" title="upvote"></div></a></center></td><td class="default"><div style="margin-top:2px; margin-bottom:-10px;"><span class="comhead">
+          <a href="user?id=ctdonath">ctdonath</a> <a href="item?id=10158580">3 hours ago</a> <span class="par"></span><span class="deadmark"></span>          <span class='storyon'></span>
+                  </span></div><br><span class="comment">
+                  <span class="c00">Looks handy for large image processing tests, thanks.<span>
+              </span><div class='reply'>        <p><font size="1">
+                      <u><a href="reply?id=10158580&amp;goto=item%3Fid%3D10158529">reply</a></u>
+                  </font>
+      </div></td></tr>
+      </table></td></tr>
+    <tr class='athing'><td><table border="0">  <tr><td class='ind'><img src="s.gif" height="1" width="0"></td><td valign="top"><center><a id="up_10159261" href="vote?for=10159261&amp;dir=up&amp;goto=item%3Fid%3D10158529"><div class="votearrow" title="upvote"></div></a></center></td><td class="default"><div style="margin-top:2px; margin-bottom:-10px;"><span class="comhead">
+          <a href="user?id=ak2196">ak2196</a> <a href="item?id=10159261">1 hour ago</a> <span class="par"></span><span class="deadmark"></span>          <span class='storyon'></span>
+                  </span></div><br><span class="comment">
+                  <span class="c00">It&#x27;s probably using middle-out.<span>
+              </span><div class='reply'>        <p><font size="1">
+                      <u><a href="reply?id=10159261&amp;goto=item%3Fid%3D10158529">reply</a></u>
+                  </font>
+      </div></td></tr>
+      </table></td></tr>
+    <tr class='athing'><td><table border="0">  <tr><td class='ind'><img src="s.gif" height="1" width="0"></td><td valign="top"><center><a id="up_10159021" href="vote?for=10159021&amp;dir=up&amp;goto=item%3Fid%3D10158529"><div class="votearrow" title="upvote"></div></a></center></td><td class="default"><div style="margin-top:2px; margin-bottom:-10px;"><span class="comhead">
+          <a href="user?id=logicallee">logicallee</a> <a href="item?id=10159021">2 hours ago</a> <span class="par"></span><span class="deadmark"></span>          <span class='storyon'></span>
+                  </span></div><br><span class="comment">
+                  <span class="c00">&gt;The image is almost entirely zeroes, with a secret message in the center.<p>too pressed for time, did anyone look?  What is it?<span>
+              </span><div class='reply'>        <p><font size="1">
+                      <u><a href="reply?id=10159021&amp;goto=item%3Fid%3D10158529">reply</a></u>
+                  </font>
+      </div></td></tr>
+      </table></td></tr>
+        <tr class='athing'><td><table border="0">  <tr><td class='ind'><img src="s.gif" height="1" width="40"></td><td valign="top"><center><a id="up_10159849" href="vote?for=10159849&amp;dir=up&amp;goto=item%3Fid%3D10158529"><div class="votearrow" title="upvote"></div></a></center></td><td class="default"><div style="margin-top:2px; margin-bottom:-10px;"><span class="comhead">
+          <a href="user?id=sgdread">sgdread</a> <a href="item?id=10159849">25 minutes ago</a> <span class="par"></span><span class="deadmark"></span>          <span class='storyon'></span>
+                  </span></div><br><span class="comment">
+                  <span class="c00">It is &quot;SORRY, OUR PRINCESS IS IN ANOTHER PIXMAP&quot;<span>
+              </span><div class='reply'>        <p><font size="1">
+                      <u><a href="reply?id=10159849&amp;goto=item%3Fid%3D10158529">reply</a></u>
+                  </font>
+      </div></td></tr>
+      </table></td></tr>
+      <tr class='athing'><td><table border="0">  <tr><td class='ind'><img src="s.gif" height="1" width="0"></td><td valign="top"><center><a id="up_10159051" href="vote?for=10159051&amp;dir=up&amp;goto=item%3Fid%3D10158529"><div class="votearrow" title="upvote"></div></a></center></td><td class="default"><div style="margin-top:2px; margin-bottom:-10px;"><span class="comhead">
+          <a href="user?id=hadeharian">hadeharian</a> <a href="item?id=10159051">2 hours ago</a> <span class="par"></span><span class="deadmark"></span>          <span class='storyon'></span>
+                  </span></div><br><span class="comment">
+                  <span class="c5a">This is a very easy form of attack in security circles.<span>
+              </span><div class='reply'>        <p><font size="1">
+                      <u><a href="reply?id=10159051&amp;goto=item%3Fid%3D10158529">reply</a></u>
+                  </font>
+      </div></td></tr>
+      </table></td></tr>
+    <tr class='athing'><td><table border="0">  <tr><td class='ind'><img src="s.gif" height="1" width="0"></td><td valign="top"><center><a id="up_10158802" href="vote?for=10158802&amp;dir=up&amp;goto=item%3Fid%3D10158529"><div class="votearrow" title="upvote"></div></a></center></td><td class="default"><div style="margin-top:2px; margin-bottom:-10px;"><span class="comhead">
+          <a href="user?id=_hhff">_hhff</a> <a href="item?id=10158802">3 hours ago</a> <span class="par"></span><span class="deadmark"></span>          <span class='storyon'></span>
+                  </span></div><br><span class="comment">
+                  <span class="c00">righto pied piper<span>
+              </span><div class='reply'>        <p><font size="1">
+                      <u><a href="reply?id=10158802&amp;goto=item%3Fid%3D10158529">reply</a></u>
+                  </font>
+      </div></td></tr>
+      </table></td></tr>
+  </table><br><br>
+</td></tr>
+<tr><td><img src="s.gif" height="10" width="0"><table width="100%" cellspacing="0" cellpadding="1"><tr><td bgcolor="#ff6600"></td></tr></table><br><center><a href="http://www.ycombinator.com/apply/">
+      Applications are open for YC Winter 2016
+      </a></center><br><center><span class="yclinks"><a href="newsguidelines.html">Guidelines</a>
+        | <a href="newsfaq.html">FAQ</a>
+        | <a href="mailto:hn@ycombinator.com">Support</a>
+        | <a href="https://github.com/HackerNews/API">API</a>
+        | <a href="security.html">Security</a>
+        | <a href="lists">Lists</a>
+        | <a href="bookmarklet.html">Bookmarklet</a>
+        | <a href="dmca.html">DMCA</a>
+        | <a href="http://www.ycombinator.com/apply/">Apply to YC</a>
+        | <a href="mailto:hn@ycombinator.com">Contact</a></span><br><br><form method="get" action="//hn.algolia.com/">Search:
+          <input type="text" name="q" value="" size="17"></form>
+            </center></td></tr>      </table></center></body></html>

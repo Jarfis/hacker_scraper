@@ -1,0 +1,2 @@
+class ArbitraryException < StandardError
+end
